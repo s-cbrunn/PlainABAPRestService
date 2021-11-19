@@ -30,18 +30,20 @@ CLASS ZCL_REST_SERVICE_RESOURCE IMPLEMENTATION.
 
   METHOD if_rest_resource~get.
 
-    DATA lo_rest_concret_source TYPE REF TO zcl_rest_source_scarr.
+    DATA lo_rest_concrete_source TYPE REF TO zif_rest_resource_handler_base.
 
     IF ms_resource_metadata-is_function_import = abap_true.
       "toDo
     ELSE.
 
-      CREATE OBJECT lo_rest_concret_source TYPE (ms_resource_metadata-handler_class).
+      CREATE OBJECT lo_rest_concrete_source TYPE (ms_resource_metadata-handler_class).
       IF ms_resource_metadata-is_query = abap_true.
         " toDo
       ELSE.
-        " toDo
-        " lo_rest_concret_source->read( io_request = mo_request io_response = mo_response ).
+        mo_response = lo_rest_concrete_source->read( io_request     = mo_request
+                                                     io_response    = mo_response
+                                                     io_context     = mo_context
+                                                     iv_conditional = mv_conditional ).
       ENDIF.
 
     ENDIF.
