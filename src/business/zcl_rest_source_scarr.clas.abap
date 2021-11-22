@@ -5,15 +5,34 @@ class ZCL_REST_SOURCE_SCARR definition
 
 public section.
 
+  methods CONSTRUCTOR
+    importing
+      !IO_HELPER type ref to ZIF_REST_RESOURCE_UTILITIES optional
+      !IO_DAO type ref to ZIF_REST_PERSISTENCE optional .
+
   methods ZIF_REST_RESOURCE_HANDLER_BASE~READ
     redefinition .
 protected section.
+
+  data MO_SCARR_DAO type ref to ZIF_REST_PERSISTENCE .
 private section.
 ENDCLASS.
 
 
 
 CLASS ZCL_REST_SOURCE_SCARR IMPLEMENTATION.
+
+
+  METHOD constructor.
+    super->constructor( ).
+
+    IF io_dao IS BOUND.
+      mo_scarr_dao = io_dao.
+    ELSE.
+      mo_scarr_dao = NEW zcl_rest_source_scarr_dao( ).
+    ENDIF.
+
+  ENDMETHOD.
 
 
   METHOD zif_rest_resource_handler_base~read.

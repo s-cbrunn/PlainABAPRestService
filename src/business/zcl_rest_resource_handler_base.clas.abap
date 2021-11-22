@@ -9,7 +9,7 @@ public section.
 
   methods CONSTRUCTOR
     importing
-      !IO_HELPER type ref to ZIF_REST_RESOURCE_UTILITIES .
+      !IO_HELPER type ref to ZIF_REST_RESOURCE_UTILITIES optional .
 protected section.
 
   data MO_HELPER type ref to ZIF_REST_RESOURCE_UTILITIES .
