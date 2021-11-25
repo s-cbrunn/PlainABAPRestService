@@ -38,7 +38,10 @@ CLASS ZCL_REST_SERVICE_RESOURCE IMPLEMENTATION.
 
       CREATE OBJECT lo_rest_concrete_source TYPE (ms_resource_metadata-handler_class).
       IF ms_resource_metadata-is_query = abap_true.
-        " toDo
+        mo_response = lo_rest_concrete_source->query( io_request     = mo_request
+                                                      io_context     = mo_context
+                                                      iv_conditional = mv_conditional
+                                                      io_response    = mo_response ).
       ELSE.
         mo_response = lo_rest_concrete_source->read( io_request     = mo_request
                                                      io_response    = mo_response

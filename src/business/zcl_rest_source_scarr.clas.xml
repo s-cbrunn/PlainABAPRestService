@@ -5,7 +5,7 @@
    <VSEOCLASS>
     <CLSNAME>ZCL_REST_SOURCE_SCARR</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Carriers Source Class</DESCRIPT>
+    <DESCRIPT>Concrete Carriers Source Class</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
